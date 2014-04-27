@@ -1,8 +1,12 @@
 *.class
 *.log
+# Coursera specific
+zips/
+project/
 
 # IntelliJ specific
 .idea/
+.settings/
 
 # sbt specific
 .cache/
