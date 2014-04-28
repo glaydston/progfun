@@ -9,17 +9,37 @@ object Main {
         print(pascal(col, row) + " ")
       println()
     }
+
+    println()
+    println("Parentheses Balancing")
+    println(balance("(if (zero? x) max (/ 1 x))".toList))
+    println(balance("I told him (that it’s not (yet) done). (But he wasn’t listening)".toList))
+    println( balance(":-)".toList))
+    println(balance("())(".toList))
   }
 
   /**
    * Exercise 1
    */
-  def pascal(c: Int, r: Int): Int = ???
+  def pascal(c: Int, r: Int): Int = {
+    // Tail Recursion in Scala
+   if(c == 0 || c == r ) 1 else pascal(c-1, r-1) + pascal(c, r-1)
+  }
 
   /**
    * Exercise 2
    */
-  def balance(chars: List[Char]): Boolean = ???
+  def balance(chars: List[Char]): Boolean = {
+    def balanced(find: Int, chars: List[Char]): Boolean = {
+      if(chars.isEmpty) find == 0
+      else
+        if (chars.head == '(') balanced(find+1, chars.tail)
+        else
+          if (chars.head == ')') find > 0 && balanced(find-1, chars.tail)
+          else balanced(find, chars.tail)
+    }
+    balanced(0, chars)
+  }
 
   /**
    * Exercise 3

@@ -16,28 +16,22 @@ object session {
   srqt(4)
   srqt(1e-6)
   srqt(1e60)
-
   //   Lecture 1.7 - Tail Recursion (12:32)
   def gcd(a: Int, b: Int): Int =
     if(b == 0) a else gcd(b, a%b)
 
   gcd(21, 14)
-
   //def factorial(n: Int): Int =
   //  if(n == 0) 1 else n * factorial(n -1)
-
   //factorial(4)
-
   // Tail Recursion in Scala
-
   def factorial(n: Int): Int = {
+
     def loop(acc: Int, n: Int): Int =
       if(n == 0) acc
       else loop(acc * n, n -1)
       loop(1, n)
    }
-
   factorial(4)
-
 
 }
