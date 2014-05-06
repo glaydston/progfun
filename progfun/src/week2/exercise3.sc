@@ -16,7 +16,7 @@ object exercise3 {
   }
   fixedPoint(x => 1 + x/2)(1)
 
-  def sqrt(x: Double) = fixedPoint(y => x / y)(1)
+  def sqrt(x: Double) = fixedPoint(y => (y + x / y) / 2)(1)
   sqrt(2)
 
 
