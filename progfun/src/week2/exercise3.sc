@@ -7,6 +7,7 @@ object exercise3 {
 
   def fixedPoint(f: Double => Double)(firstGuess: Double) = {
     def iterate(guess: Double): Double = {
+      println("guess = " + guess)
       val next = f(guess)
       if(isCloseEnough(guess, next)) next
       else iterate(firstGuess)
@@ -14,5 +15,10 @@ object exercise3 {
     iterate(firstGuess)
   }
   fixedPoint(x => 1 + x/2)(1)
+
+  def sqrt(x: Double) = fixedPoint(y => x / y)(1)
+  sqrt(2)
+
+
 
 }
