@@ -53,6 +53,10 @@ class FunSetSuite extends FunSuite {
   test("contains is implemented") {
     assert(contains(x => true, 100))
   }
+
+  test("it should not contain 100") {
+    assert(!contains({x: Int => x > 0},-100))
+  }
   
   /**
    * When writing tests, one would often like to re-use certain values for multiple
@@ -77,6 +81,14 @@ class FunSetSuite extends FunSuite {
     val s1 = singletonSet(1)
     val s2 = singletonSet(2)
     val s3 = singletonSet(3)
+    val s4 = singletonSet(1)
+    val s5 = singletonSet(4)
+    val setPositiveNumbers = union(singletonSet(1), singletonSet(300))
+    val setNegativeNumbers = union(singletonSet(-10), singletonSet(-99))
+    val setPositiveAndNegativeNumbers = union(setPositiveNumbers, setNegativeNumbers)
+    val setEvenNumbers = union(singletonSet(4), singletonSet(6))
+    val setOddNumbers = union(singletonSet(3), singletonSet(9))
+    val setEvenAndOddNumbers = union(setEvenNumbers, setOddNumbers)
   }
 
   /**
