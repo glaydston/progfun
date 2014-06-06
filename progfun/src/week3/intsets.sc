@@ -8,6 +8,7 @@ object intsets {
     def contains(x: Int): Boolean
     def union(other: InSet): InSet
   }
+
   class Empty extends InSet {
     def contains(x: Int): Boolean = false
     def incl(x: Int): InSet = new NonEmpty(x, new Empty, new Empty)
