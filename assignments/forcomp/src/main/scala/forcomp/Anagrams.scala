@@ -1,7 +1,5 @@
 package forcomp
 
-import common._
-
 object Anagrams {
 
   /** A word is simply a `String`. */
@@ -104,11 +102,11 @@ object Anagrams {
    *  and has no zero-entries.
    */
   def subtract(x: Occurrences, y: Occurrences): Occurrences = {
-    (y.toMap.foldLeft(x.toMap) ((map, tuple) => {
+    y.toMap.foldLeft(x.toMap)((map, tuple) => {
       val newFreq = map(tuple._1) - tuple._2
       if (newFreq <= 0) map - tuple._1
       else map.updated(tuple._1, newFreq)
-    })).toList.sorted
+    }).toList.sorted
   }
 
   /** Returns a list of all anagram sentences of the given sentence.
